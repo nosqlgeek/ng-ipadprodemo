@@ -6,6 +6,8 @@ from redis import Redis
 
 ## Init
 app = Flask(__name__)
+
+## TODO: Read password from JSON file
 redis = Redis(host='redis-18210.c12.us-east-1-4.ec2.cloud.redislabs.com', port=18210, password='49FSIbUuXjoFzC5tzM2k1METm2r3vBsK')
 
 ## Test

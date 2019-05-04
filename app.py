@@ -2,8 +2,10 @@ print("Starting the web application ....");
 
 # Imports
 from flask import Flask
+from flask import request
 from flask import render_template
 from redis import Redis
+from redis.exceptions import RedisError
 import config
 
 ## Init
@@ -24,11 +26,28 @@ redis = Redis(host=host, port=port, password=pwd, charset="utf-8", decode_respon
 redis.set("test", "Database connectivity works as expected!");
 
 ## Routes
-@app.route("/test/db")
+@app.route("/db/test")
 def dbtest():
 	status = redis.get("test")
 	return render_template('dbtest.html', status=status)
-    
+
+@app.route("/db/exec")
+def execcmd():
+	cmd=request.args.get('cmd')
+	
+	if (cmd != None):
+		print("Trying to execute: {}".format(cmd))
+		try:
+			result = redis.execute_command(cmd)
+			status = "Success"
+			return render_template('execcmd.html', status=status, result=result)
+		except RedisError as err:
+			error = err
+			return render_template('execcmd.html', error=err)
+	
+	return render_template('execcmd.html')
+
+
 ## TODO: Add additional routes!    
     
     

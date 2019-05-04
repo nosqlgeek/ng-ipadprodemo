@@ -3,21 +3,33 @@ print("Starting Hello World service ....");
 # Imports
 from flask import Flask
 from redis import Redis
+import config
 
 ## Init
 app = Flask(__name__)
 
-## TODO: Read password from JSON file
-redis = Redis(host='redis-18210.c12.us-east-1-4.ec2.cloud.redislabs.com', port=18210, password='49FSIbUuXjoFzC5tzM2k1METm2r3vBsK')
 
-## Test
-redis.set("hello", "Hello World again!");
+## DB config
+host = config.REDIS_CFG['host']
+port = config.REDIS_CFG['port']
+pwd = config.REDIS_CFG['password']
+
+redis = Redis(host=host, port=port, password=pwd)
+
+## Warning: Only for testing purposes!
+#redis.flushdb();
+
+## Test DB config
+redis.set("test", "Database connectivity works as expected!");
 
 ## Routes
-@app.route("/hello")
+@app.route("/test/db")
 def hello():
-	res = redis.get("hello")
+	res = redis.get("test")
 	return res
+    
+## TODO: Add additional routes!    
+    
     
 if __name__ == "__main__":
 	app.debug = False

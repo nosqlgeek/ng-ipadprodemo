@@ -1,7 +1,8 @@
-print("Starting Hello World service ....");
+print("Starting the web application ....");
 
 # Imports
 from flask import Flask
+from flask import render_template
 from redis import Redis
 import config
 
@@ -14,7 +15,7 @@ host = config.REDIS_CFG['host']
 port = config.REDIS_CFG['port']
 pwd = config.REDIS_CFG['password']
 
-redis = Redis(host=host, port=port, password=pwd)
+redis = Redis(host=host, port=port, password=pwd, charset="utf-8", decode_responses=True)
 
 ## Warning: Only for testing purposes!
 #redis.flushdb();
@@ -24,9 +25,9 @@ redis.set("test", "Database connectivity works as expected!");
 
 ## Routes
 @app.route("/test/db")
-def hello():
-	res = redis.get("test")
-	return res
+def dbtest():
+	status = redis.get("test")
+	return render_template('dbtest.html', status=status)
     
 ## TODO: Add additional routes!    
     

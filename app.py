@@ -4,6 +4,7 @@ print("Starting the web application ....");
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask import redirect
 from redis import Redis
 from redis.exceptions import RedisError
 import config
@@ -47,9 +48,10 @@ def execcmd():
 	
 	return render_template('execcmd.html')
 
-
-## TODO: Add additional routes!    
-    
+@app.route("/")
+def root():
+	return redirect('/db/exec')
+ 
     
 if __name__ == "__main__":
 	app.debug = False

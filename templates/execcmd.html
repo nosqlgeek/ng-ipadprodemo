@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	
+	{% include 'head.html' %}
+		
+	<body>
+		<div class="container">
+  		{% include 'header.html' %}
+  		<form>
+  			<div class="form-group">
+    			<label for="cmdInput">Command</label>
+    			{% if cmd %}
+    			<input type="text" class="form-control" id="cmdInput" name="cmd"
+    			placeholder="{{cmd}}"/>
+    			{% else %}
+    			<input type="text" class="form-control" id="cmdInput" name="cmd"
+    			placeholder="Enter command ..."/>
+    			{% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      
+      <div style="margin-top: 25px;">
+      	{% if status %}
+      	<div class="panel panel-default">
+  				<div class="panel-body">{{result}}</div>
+				</div>
+      	<div class="alert alert-success" role="alert">{{status}}</div>
+      	{% endif %}
+      	{% if error %}
+      	<div class="alert alert-danger" role="alert">{{error}}</div>
+      	{% endif %}
+      </div>
+      {% include 'footer.html' %}
+  	</div>
+	</body>
+</html>

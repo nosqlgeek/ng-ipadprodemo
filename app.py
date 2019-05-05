@@ -14,9 +14,9 @@ app = Flask(__name__)
 
 
 ## DB config
-host = config.REDIS_CFG['host']
-port = config.REDIS_CFG['port']
-pwd = config.REDIS_CFG['password']
+host = config.REDIS_CFG["host"]
+port = config.REDIS_CFG["port"]
+pwd = config.REDIS_CFG["password"]
 
 redis = Redis(host=host, port=port, password=pwd, charset="utf-8", decode_responses=True)
 
@@ -34,19 +34,23 @@ def dbtest():
 
 @app.route("/db/exec")
 def execcmd():
-	cmd=request.args.get('cmd')
+	# View constants
+	TITLE="Execute Command"
+	DESC="Just enter a command in the text field below ..."
+	
+	# Request params
+	cmd=request.args.get("cmd")
 	
 	if (cmd != None):
 		print("Trying to execute: {}".format(cmd))
 		try:
 			result = redis.execute_command(cmd)
 			status = "Success"
-			return render_template('execcmd.html', status=status, result=result)
+			return render_template('execcmd.html', title=TITLE, desc=DESC, cmd=cmd, status=status, result=result)
 		except RedisError as err:
-			error = err
-			return render_template('execcmd.html', error=err)
+			return render_template('execcmd.html', title=TITLE, desc=DESC, cmd=cmd, error=err)
 	
-	return render_template('execcmd.html')
+	return render_template('execcmd.html', title=TITLE, desc=DESC)
 
 @app.route("/")
 def root():

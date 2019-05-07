@@ -23,14 +23,53 @@ redis = Redis(host=host, port=port, password=pwd, charset="utf-8", decode_respon
 ## Warning: Only for testing purposes!
 #redis.flushdb();
 
-## Test DB config
-redis.set("test", "Database connectivity works as expected!");
-
 ## Routes
+@app.route("/home")
+def home():
+	# View constants
+	TITLE="Home"
+	DESC="Welcome to this simple Redis demo application. This application allows you to check the database connectivity, access some database configuration details and to execute Redis commands."
+	return render_template('home.html', title=TITLE, desc=DESC)
+
+@app.route("/db/info")
+def dbinfo():
+	# View constants
+	TITLE="Database Info"
+	DESC="Some database details ..."
+	
+	items = []
+	
+	try:
+		result = redis.info()
+		#print(status)
+		for k in result:
+			item = {}
+			item["key"] = k
+			item["value"] = result[k]
+			items.append(item)   
+	except RedisError as err:
+		item = {}
+		item["key"] = "error"
+		item["value"] = err
+		items.append(item) 
+	
+	return render_template('dbinfo.html', title=TITLE, desc=DESC, items=items)
+
 @app.route("/db/test")
 def dbtest():
-	status = redis.get("test")
-	return render_template('dbtest.html', status=status)
+	# View constants
+	TITLE="Test Connectivity"
+	DESC="Find the status of the connectivity test below ..."
+	
+	status = "Not connected!"
+	
+	try:
+		redis.set("db:test", "Database connectivity works as expected!");
+		status = redis.get("db:test")
+	except RedisError as err:
+		status = err
+	
+	return render_template('dbtest.html', title=TITLE, desc=DESC, status=status)
 
 @app.route("/db/exec")
 def execcmd():
@@ -54,7 +93,7 @@ def execcmd():
 
 @app.route("/")
 def root():
-	return redirect('/db/exec')
+	return redirect('/home')
  
     
 if __name__ == "__main__":

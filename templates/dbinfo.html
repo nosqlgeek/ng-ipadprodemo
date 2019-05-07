@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+ 	{% include 'head.html' %}
+	
+	<body>
+		<div class="container">
+		{% include 'header.html' %}
+		
+			<table class="table">
+  		<thead class="thead-dark">
+    		<tr>
+      		<th scope="col">Metric</th>
+      		<th scope="col">Value</th>
+    		</tr>
+  		</thead>
+  
+ 			<tbody>
+ 			  {% for item in items %}
+    		<tr>
+      		<td>{{item.key}}</td>
+      		<td>{{item.value}}</td>
+    		</tr>
+    		{% endfor %}
+    	</tbody>
+    	</table>
+		</div>
+	{% include 'footer.html' %}
+	</body>
+</html>

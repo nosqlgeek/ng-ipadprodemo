@@ -48,4 +48,8 @@ The application will read the configuration from a file which is called 'config.
 
 Here finally a screenshot of the application which is running in a browser on my iPad:
 
+* App in Safari:
 ![alt tag](https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Database_Info.jpg)
+
+* Pythonista IDE:
+![alt tag](https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/IDE.jpg)

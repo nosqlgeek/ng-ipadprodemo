@@ -30,6 +30,22 @@ I think it would.  However, if you are still wondering "Why the hell should I wa
 
 So have fun!
 
+## How to run the Application
+
+The following python packages should be installed:
+
+* redis
+* Flask
+
+The application will read the configuration from a file which is called 'config.py'. You will need to create copy the config_example.py file to 'config.py'. Then you can set the following configuration paramters:
+
+* host
+* port
+* password
+
+
+## Screenshot
+
 Here finally a screenshot of the application which is running in a browser on my iPad:
 
 SCREEN

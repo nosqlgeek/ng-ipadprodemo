@@ -21,12 +21,12 @@ It all went a bit "crazy" when I went to my barber to get my beard cut. Now my T
 
 ? 
 
-I think it would.  However, if you are still wondering "Why the hell should I want to develop on an iPad Pro?" then I guess the answer is: "Because you can!" ;-) So this is more a fun project, whereby it might be a good basic example for:
+Given the fact that I invested some time to write this article, my opinion is clearly: "Yes, it would be cool!".  However, if you are still wondering "Why the hell should I want to develop on an iPad Pro?" then I guess the answer is: "Because you can!" ;-) So this is more a fun project, whereby it might be a good basic example for:
 
 * Understanding some Redis basics
 * Using a very popular Redis Python client (https://github.com/andymccurdy/redis-py)
 * Understanding some Jinja2 (http://jinja.pocoo.org/docs/2.10/) HTML templating basics
-* Learning how to use Flask (http://flask.pocoo.org/) for building simple web applications
+* Learning how to use some Flask basics (http://flask.pocoo.org/) for building a simple web application
 
 So have fun!
 

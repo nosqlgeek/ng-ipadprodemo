@@ -2,7 +2,7 @@
 
 ... which is entirely developed on the iPad Pro.
 
-It all started a few weeks ago when I purchased an iPad Pro (11 inch). The motivation was obviously not to use it as a development machine. My current role requires to draw some diagrams and to explain stuff a bit more vizually. So the iPad Pro seemed to be a nice device for such a purpose.
+It all started a few weeks ago when I decide to buy an iPad Pro (11 inch). The motivation was obviously not to use it as a development machine. My current role requires to draw some diagrams and to explain stuff a bit more vizually. So the iPad Pro seemed to be a nice device for such a purpose.
 
 Being a techie, I wondered a bit which kind of development can be done on it and I started to install some tools for experimenting with them:
 

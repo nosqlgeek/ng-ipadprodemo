@@ -37,7 +37,7 @@ The following python packages should be installed:
 * redis
 * Flask
 
-The application will read the configuration from a file which is called 'config.py'. You will need to create copy the config_example.py file to 'config.py'. Then you can set the following configuration paramters:
+The application will read the configuration from a file which is called 'config.py'. You will need to create copy the 'config_example.py' file to 'config.py'. Then you can set the following configuration paramters:
 
 * host
 * port
@@ -48,4 +48,4 @@ The application will read the configuration from a file which is called 'config.
 
 Here finally a screenshot of the application which is running in a browser on my iPad:
 
-SCREEN
+![alt tag](https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Database_Info.jpg)

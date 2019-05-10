@@ -50,9 +50,10 @@ Here finally a screenshot of the application which is running in a browser on my
 
 * App in Safari:
 
-<img src="https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Database_Info.jpg" width="300"></img>
-<img src="https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Exec.jpg" width="300"></img>
+<img src="https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Database_Info.jpg" width="400"></img>
+
+<img src="https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Exec.jpg" width="400"></img>
 
 * Pythonista IDE:
 
-<img src="https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/IDE.jpg" width="300"></img>
+<img src="https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/IDE.jpg" width="400"></img>

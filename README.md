@@ -21,15 +21,35 @@ It all went a bit "crazy" when I went to my barber to get my beard cut. Now my T
 
 ? 
 
-I think it would.  However, if you are still wondering "Why the hell should I want to develop on an iPad Pro?" then I guess the answer is: "Because you can!" ;-) So this is more a fun project, whereby it might be a good basic example for:
+Given the fact that I invested some time to write this article, my opinion is clearly: "Yes, it would be cool!".  However, if you are still wondering "Why the hell should I want to develop on an iPad Pro?" then I guess the answer is: "Because you can!" ;-) So this is more a fun project, whereby it might be a good basic example for:
 
 * Understanding some Redis basics
 * Using a very popular Redis Python client (https://github.com/andymccurdy/redis-py)
 * Understanding some Jinja2 (http://jinja.pocoo.org/docs/2.10/) HTML templating basics
-* Learning how to use Flask (http://flask.pocoo.org/) for building simple web applications
+* Learning how to use some Flask basics (http://flask.pocoo.org/) for building a simple web application
 
 So have fun!
 
+## How to run the Application
+
+The following python packages should be installed:
+
+* redis
+* Flask
+
+The application will read the configuration from a file which is called 'config.py'. You will need to create copy the 'config_example.py' file to 'config.py'. Then you can set the following configuration paramters:
+
+* host
+* port
+* password
+
+
+## Screenshot
+
 Here finally a screenshot of the application which is running in a browser on my iPad:
 
-SCREEN
+* App in Safari:
+![alt tag](https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Database_Info.jpg)
+
+* Pythonista IDE:
+![alt tag](https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/IDE.jpg)

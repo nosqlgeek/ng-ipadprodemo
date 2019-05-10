@@ -22,14 +22,18 @@
       
       <div style="margin-top: 25px;">
       	{% if status %}
-      	<div class="panel panel-default">
-  				<div class="panel-body">{{result}}</div>
-				</div>
-      	<div class="alert alert-success" role="alert">{{status}}</div>
+  			<div>
+  				<table class="table">
+  					<thead class="thead-dark"><tr><th scope="col">Result</th></tr></thead>
+  					<tbody>
+  					{% for line in lines %}
+    					<tr><td>{{line}}</td></tr>
+    				{% endfor %}
+    				</tbody>
+    			</table>
+  			</div>
       	{% endif %}
-      	{% if error %}
-      	<div class="alert alert-danger" role="alert">{{error}}</div>
-      	{% endif %}
+				{% include 'status.html' %}	
       </div>
       {% include 'footer.html' %}
   	</div>

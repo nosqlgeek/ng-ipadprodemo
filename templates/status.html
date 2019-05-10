@@ -1,0 +1,8 @@
+<div style="margin-top: 25px;">
+	{% if status %}
+	<div class="alert alert-success" role="alert">{{status}}</div>
+  {% endif %}
+  {% if error %}
+  <div class="alert alert-danger" role="alert">{{error}}</div>
+  {% endif %}
+</div>

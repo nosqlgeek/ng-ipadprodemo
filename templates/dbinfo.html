@@ -6,6 +6,7 @@
 		<div class="container">
 		{% include 'header.html' %}
 		
+			{% if status %}
 			<table class="table">
   		<thead class="thead-dark">
     		<tr>
@@ -23,6 +24,8 @@
     		{% endfor %}
     	</tbody>
     	</table>
+    	{% endif %}
+    	{% include 'status.html' %}
 		</div>
 	{% include 'footer.html' %}
 	</body>

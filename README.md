@@ -51,6 +51,8 @@ Here finally a screenshot of the application which is running in a browser on my
 * App in Safari:
 ![alt tag](https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Database_Info.jpg | width=200)
 
+<img src="https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Database_Info.jpg" width="200">Database_Info.jpg</img>
+
 ![alt tag](https://raw.github.com/nosqlgeek/ng-ipadprodemo/master/screenshot/Exec.jpg | width=200)
 
 * Pythonista IDE:

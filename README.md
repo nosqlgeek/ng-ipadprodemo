@@ -44,7 +44,7 @@ The application will read the configuration from a file which is called 'config.
 * password
 
 
-## Screenshot
+## Screenshots
 
 Here finally a screenshot of the application which is running in a browser on my iPad:
 

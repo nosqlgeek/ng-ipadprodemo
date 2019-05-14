@@ -1,36 +1,28 @@
 print("Starting the web application ....");
 
 # Imports
+import uuid
 from flask import Flask
 from flask import request
 from flask import render_template
 from flask import redirect
-from redis import Redis
 from redis.exceptions import RedisError
-import config
+from login import login_page
+from login import validate_session
+from login import login_required
+from db import redis
 
 ## Init
 app = Flask(__name__)
-
-
-## DB config
-host = config.REDIS_CFG["host"]
-port = config.REDIS_CFG["port"]
-pwd = config.REDIS_CFG["password"]
-
-redis = Redis(host=host, port=port, password=pwd, charset="utf-8", decode_responses=True)
-
-## Warning: Only for testing purposes!
-#redis.flushdb();
+app.register_blueprint(login_page)
 
 ## Routes
-
 ### Home page
 @app.route("/home")
 def home():
 	# View constants
-	TITLE="Home"
-	DESC="Welcome to this simple Redis demo application. This application allows you to check the database connectivity, access some database configuration details and to execute Redis commands."
+	TITLE="Welcome"
+	DESC="to this simple Redis demo application. This application allows you to check the database connectivity, access some database configuration details and to execute Redis commands."
 	return render_template('home.html', title=TITLE, desc=DESC)
 
 ### Database info
@@ -61,14 +53,15 @@ def dbtest():
 	DESC="Find the status of the connectivity test below ..."
 	
 	try:
-		redis.set("db:test", "Database connectivity works as expected!");
-		status = redis.get("db:test")
+		redis.set("redwc:db:test", "Database connectivity works as expected!");
+		status = redis.get("redwc:db:test")
 		return render_template('dbtest.html', title=TITLE, desc=DESC, status=status)
 	except RedisError as err:
 		return render_template('dbtest.html', title=TITLE, desc=DESC, error=err)
 	
 ### Execute a command
 @app.route("/db/exec")
+@login_required
 def execcmd():
 	# View constants
 	TITLE="Execute Command"
@@ -98,7 +91,7 @@ def execcmd():
 					val = "{} : {}".format(k, result[k])
 					lines.append(val)
 			else:
-				# Everything else is just defaulting to a String output
+				# Everything else is just defaulting to a String
 				lines = str(result).splitlines()
 		
 			return render_template('execcmd.html', title=TITLE, desc=DESC, cmd=cmd, status='Success', lines=lines)
